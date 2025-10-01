@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+  namespace: event-platform
+type: Opaque
+stringData:
+  jwt-secret: production-secret-key-change-this-in-real-deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service
+  namespace: event-platform
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-service
+  template:
+    metadata:
+      labels:
+        app: auth-service
+    spec:
+      containers:
+      - name: auth-service
+        image: smart-event-platform-auth-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 4001
+        env:
+        - name: PORT
+          value: "4001"
+        - name: MONGO_URI
+          value: mongodb://admin:password@mongodb-service:27017/auth?authSource=admin
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: jwt-secret
+        - name: NODE_ENV
+          value: production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+  namespace: event-platform
+spec:
+  selector:
+    app: auth-service
+  ports:
+  - port: 4001
+    targetPort: 4001
+  type: ClusterIP
