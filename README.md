@@ -1,6 +1,16 @@
-# Cloud-Native Event Management Platform
+# 🎟️ Evexio – Cloud-Native Event Management Platform
 
-A full-stack event management system built with microservices architecture, demonstrating modern DevOps practices including containerization, orchestration, infrastructure as code, and CI/CD automation.
+<div align="center">
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Azure](https://img.shields.io/badge/Azure-Deployed-0078D4)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestrated-326CE5)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248)
+
 
 ## Author
 
