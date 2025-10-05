@@ -12,69 +12,41 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-7-47A248)
 
 
-## Author
+**A full-stack event management system demonstrating modern DevOps practices with microservices architecture, containerization, orchestration, and CI/CD automation.**
 
-**Steve Thomas Mulamoottil**
-- GitHub: [@SteveTM-git](https://github.com/SteveTM-git)
+[Features](#features) • [Architecture](#architecture) • [Getting Started](#getting-started) • [Documentation](#documentation)
 
-##  Features
+</div>
 
-### User Features
-- User registration and authentication with JWT
-- Browse events with search and category filters
-- Book tickets with payment simulation
-- View booking history
-- Cancel bookings with automatic refunds
+---
 
-### Admin Features
-- Create and manage events
-- View booking analytics per event
-- Real-time seat availability management
+## ✨ Features
+
+### 🎫 User Experience
+- Secure authentication with JWT tokens
+- Browse events with advanced search and filters
+- Real-time seat availability
+- Instant ticket booking with payment simulation
+- Booking history and management
+- One-click booking cancellation with automatic refunds
+
+### 👨‍💼 Admin Dashboard
+- Intuitive event creation and management
+- Real-time analytics and booking statistics
+- Seat availability monitoring
 - Event categorization and organization
 
-##  Architecture
-
-### Microservices
-- **Auth Service** (Port 4001) - User authentication and authorization
-- **Event Service** (Port 4002) - Event CRUD operations
-- **Booking Service** (Port 4003) - Ticket booking and management
-- **MongoDB** - Persistent data storage
+---
 
 ### Tech Stack
 - **Backend**: Node.js, Express.js, Mongoose
 - **Frontend**: React, React Router, Axios
 - **Database**: MongoDB
 - **Containerization**: Docker, Docker Compose
-- **Orchestration**: Kubernetes (Minikube, EKS)
-- **IaC**: Terraform
+- **Orchestration**: Kubernetes (Minikube, AKS)
+- **Infrastructure**: Terraform (Azure)
 - **CI/CD**: GitHub Actions
-- **Cloud**: AWS (VPC, EKS, EC2)
+- **Cloud**: Microsoft Azure
 
-##  Project Structure
-smart-event-platform/
-├── services/
-│   ├── auth-service/
-│   ├── event-service/
-│   └── booking-service/
-├── frontend/
-├── infrastructure/
-│   ├── kubernetes/
-│   └── terraform/
-├── .github/
-│   └── workflows/
-└── docker-compose.yml
-##  Getting Started
+---
 
-### Prerequisites
-- Node.js 18+
-- Docker Desktop
-- kubectl
-- Minikube (for local K8s)
-- Terraform
-
-### Local Development
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/SteveTM-git/smart-event-platform.git
-cd smart-event-platform
