@@ -3,12 +3,11 @@ name: CD Pipeline
 on:
   workflow_run:
     workflows: ["CI Pipeline"]
-    types:
-      - completed
+    types: [completed]
     branches: [main]
 
 jobs:
-  deploy-to-kubernetes:
+  deploy-to-azure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
@@ -16,53 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: Deploy to Azure VM via SSH
+        uses: appleboy/ssh-action@master
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      
-      - name: Update kubeconfig
-        run: |
-          aws eks update-kubeconfig --name event-platform-dev-cluster --region us-east-1
-      
-      - name: Deploy auth-service
-        run: |
-          kubectl set image deployment/auth-service \
-            auth-service=${{ secrets.DOCKERHUB_USERNAME }}/event-platform-auth:${{ github.sha }} \
-            -n event-platform
-          kubectl rollout status deployment/auth-service -n event-platform
-      
-      - name: Deploy event-service
-        run: |
-          kubectl set image deployment/event-service \
-            event-service=${{ secrets.DOCKERHUB_USERNAME }}/event-platform-event:${{ github.sha }} \
-            -n event-platform
-          kubectl rollout status deployment/event-service -n event-platform
-      
-      - name: Deploy booking-service
-        run: |
-          kubectl set image deployment/booking-service \
-            booking-service=${{ secrets.DOCKERHUB_USERNAME }}/event-platform-booking:${{ github.sha }} \
-            -n event-platform
-          kubectl rollout status deployment/booking-service -n event-platform
-      
-      - name: Verify deployment
-        run: |
-          kubectl get pods -n event-platform
-          kubectl get services -n event-platform
-
-  notify-slack:
-    runs-on: ubuntu-latest
-    needs: [deploy-to-kubernetes]
-    if: always()
-    
-    steps:
-      - name: Send Slack notification
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          text: 'Deployment to Kubernetes completed'
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
+          host: ${{ secrets.AZURE_VM_IP }}
+          username: azureuser
+          key: ${{ secrets.AZURE_SSH_KEY }}
+          script: |
+            cd smart-event-platform
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build
+            docker ps
