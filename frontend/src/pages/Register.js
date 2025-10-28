@@ -15,7 +15,7 @@ function Register({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:4001/api/auth/register', {
+      const response = await axios.post('http://20.120.101.60:4001/api/auth/register', {
         name,
         email,
         password

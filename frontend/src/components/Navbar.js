@@ -6,7 +6,7 @@ function Navbar({ user, onLogout }) {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">Event Platform</Link>
+        <Link to="/" className="navbar-brand">Evexio</Link>
         <div className="navbar-menu">
           <Link to="/" className="navbar-link">Events</Link>
           {user ? (
@@ -20,8 +20,8 @@ function Navbar({ user, onLogout }) {
             </>
           ) : (
             <>
-              <Link to="/login" className="navbar-link">Login</Link>
-              <Link to="/register" className="navbar-link">Register</Link>
+              <Link to="/login" className="btn btn-primary">Login</Link>
+              <Link to="/register" className="btn btn-primary">Register</Link>
             </>
           )}
         </div>

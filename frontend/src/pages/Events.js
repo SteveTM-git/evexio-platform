@@ -15,7 +15,7 @@ function Events() {
 
   const fetchEvents = async () => {
     try {
-      let url = 'http://localhost:4002/api/events';
+      let url = 'http://20.120.101.60:4002/api/events';
       const params = [];
       if (search) params.push(`search=${search}`);
       if (category) params.push(`category=${category}`);

@@ -13,7 +13,7 @@ function MyBookings() {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:4003/api/bookings', {
+      const response = await axios.get('http://20.120.101.60:4003/api/bookings', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBookings(response.data.bookings);
@@ -30,7 +30,7 @@ function MyBookings() {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:4003/api/bookings/${bookingId}/cancel`,
+        `http://20.120.101.60:4003/api/bookings/${bookingId}/cancel`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

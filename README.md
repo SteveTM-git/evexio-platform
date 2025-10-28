@@ -67,4 +67,4 @@ smart-event-platform/
 1. **Clone the repository**
 ```bash
 git clone https://github.com/SteveTM-git/smart-event-platform.git
-cd smart-event-platform
+cd smart-event-platform# DevOps Project - Azure Deployment

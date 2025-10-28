@@ -1,0 +1,17 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - docker.io
+  - docker-compose
+  - git
+
+runcmd:
+  - systemctl start docker
+  - systemctl enable docker
+  - usermod -aG docker azureuser
+  - curl -fsSL https://get.docker.com -o get-docker.sh
+  - sh get-docker.sh
+  - curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  - chmod +x /usr/local/bin/docker-compose

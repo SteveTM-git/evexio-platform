@@ -18,7 +18,7 @@ function EventDetail({ user }) {
 
   const fetchEvent = async () => {
     try {
-      const response = await axios.get(`http://localhost:4002/api/events/${id}`);
+      const response = await axios.get(`http://20.120.101.60:4002/api/events/${id}`);
       setEvent(response.data);
     } catch (err) {
       console.error('Error fetching event:', err);
@@ -39,7 +39,7 @@ function EventDetail({ user }) {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:4003/api/bookings',
+        'http://20.120.101.60:4003/api/bookings',
         {
           eventId: event._id,
           numberOfTickets: tickets,

@@ -24,7 +24,7 @@ function AdminEvents() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:4002/api/events');
+      const response = await axios.get('http://20.120.101.60:4002/api/events');
       setEvents(response.data.events);
     } catch (err) {
       console.error('Error fetching events:', err);
@@ -36,7 +36,7 @@ function AdminEvents() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:4002/api/events',
+        'http://20.120.101.60:4002/api/events',
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -65,7 +65,7 @@ function AdminEvents() {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:4002/api/events/${id}`, {
+      await axios.delete(`http://20.120.101.60:4002/api/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Event deleted!');

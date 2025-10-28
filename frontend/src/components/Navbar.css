@@ -1,24 +1,28 @@
 .navbar {
-  background: #333;
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #4338ca 0%, #5b21b6 100%);
+  padding: 14px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .navbar-brand {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
   color: white;
   text-decoration: none;
+  letter-spacing: -0.5px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar-menu {
@@ -28,15 +32,31 @@
 }
 
 .navbar-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  transition: color 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .navbar-link:hover {
-  color: #007bff;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
 }
 
 .navbar-user {
-  color: #ddd;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.navbar .btn {
+  padding: 7px 16px;
+  font-size: 13px;
+  border-radius: 6px;
 }
