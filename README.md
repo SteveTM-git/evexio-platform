@@ -1,4 +1,4 @@
-# Cloud-Native Event Management Platform
+# Evexio: A Cloud-Native Event Management Platform with Enterprise DevOps
 
 A full-stack event management system built with microservices architecture, demonstrating modern DevOps practices including containerization, orchestration, infrastructure as code, and CI/CD automation.
 
@@ -39,6 +39,19 @@ A full-stack event management system built with microservices architecture, demo
 - **IaC**: Terraform
 - **CI/CD**: GitHub Actions
 - **Cloud**: AWS (VPC, EKS, EC2)
+
+## 📸 Screenshots
+<img width="890" height="512" alt="image" src="https://github.com/user-attachments/assets/def32206-4e98-4623-b24b-1ad7517c3594" />
+<img width="880" height="496" alt="image" src="https://github.com/user-attachments/assets/cf407bbf-72c6-4a8e-a500-526d8c363ed1" />
+<img width="881" height="481" alt="image" src="https://github.com/user-attachments/assets/6edca69c-c41f-4154-bb74-7827316c6fbe" />
+<img width="871" height="496" alt="image" src="https://github.com/user-attachments/assets/5904e646-a5ea-4da8-9d31-175727738170" />
+<img width="885" height="492" alt="image" src="https://github.com/user-attachments/assets/d56ac54d-e6bf-4f24-85e5-1dc8b958c061" />
+
+
+
+
+
+
 
 ##  Project Structure
 smart-event-platform/
